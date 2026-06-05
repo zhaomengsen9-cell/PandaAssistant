@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+target/
+
+# local env
+.env
+.env.local
+
+# build
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+

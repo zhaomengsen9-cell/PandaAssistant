@@ -1,12 +1,14 @@
 package com.pandaassistant.algorithm;
 
 import com.pandaassistant.question.Question;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Component
+@ConditionalOnProperty(prefix = "app.algorithm", name = "mode", havingValue = "stub", matchIfMissing = true)
 public class StubAlgorithmAdapter implements DocumentUnderstandingPort, QuestionTaggingPort,
         QuestionGenerationPort, VectorKnowledgeBasePort, PaperGradingPort, LearningReportPort {
     @Override
@@ -48,4 +50,3 @@ public class StubAlgorithmAdapter implements DocumentUnderstandingPort, Question
         return "学情分析报告占位：后续接入大模型生成固定格式报告。";
     }
 }
-

@@ -17,4 +17,7 @@ spring:
 
 app:
   algorithm:
-    mode: stub
+    mode: ${ALGORITHM_MODE:stub}
+    llama-index:
+      base-url: ${LLAMA_INDEX_BASE_URL:http://localhost:8001}
+      timeout: ${LLAMA_INDEX_TIMEOUT:60s}

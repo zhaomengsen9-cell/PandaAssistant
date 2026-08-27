@@ -68,11 +68,7 @@ http://localhost:8080
 SERVER_PORT=8081 mvn spring-boot:run
 ```
 
-## 数据库配置
-
-默认使用 H2 内存数据库，适合本地开发和接口联调。
-
-如果要切换到 PostgreSQL，可以设置：
+By default the backend uses H2 in-memory storage for local development. Set PostgreSQL environment variables when needed:
 
 ```bash
 export DB_URL=jdbc:postgresql://localhost:5432/panda_assistant
@@ -96,17 +92,9 @@ backend/src/main/java/com/pandaassistant/algorithm
 
 当前预留接口包括：
 
-- `DocumentUnderstandingPort`：Word/PDF/试卷图片的 layout 与 OCR 识别。
-- `QuestionTaggingPort`：题目科目、知识点、难度等级自动打标签。
-- `QuestionGenerationPort`：根据原题生成变式题。
-- `VectorKnowledgeBasePort`：科目资料入库、向量库构建和 RAG 检索。
-- `PaperGradingPort`：学生答案抽取与自动评阅。
-- `LearningReportPort`：生成固定格式的学情分析报告。
-
-## 当前状态
-
-- 前端已完成教师工作台基础页面。
-- 后端已完成主要 REST API 骨架。
-- 数据库已包含科目、题库、科目资料、评阅结果、学生总分、每题得分、学情报告等基础表。
-- 算法服务当前为 stub 占位实现，后续可替换为真实 OCR/RAG/LLM 服务。
-
+- `DocumentUnderstandingPort`: layout and OCR for Word/PDF/paper images.
+- `QuestionTaggingPort`: LLM tagging for subject, knowledge points, and difficulty.
+- `QuestionGenerationPort`: variant question generation.
+- `VectorKnowledgeBasePort`: subject vector database/RAG ingestion and retrieval.
+- `PaperGradingPort`: answer extraction and grading.
+- `LearningReportPort`: fixed-format learning analysis reports.
